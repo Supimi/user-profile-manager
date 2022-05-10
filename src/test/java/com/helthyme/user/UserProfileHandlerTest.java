@@ -40,7 +40,7 @@ public class UserProfileHandlerTest {
                     .userName("supimip")
                     .gender("Female")
                     .build();
-            InputStream inputStream = new AwsProxyRequestBuilder("/v1/user", HttpMethod.POST)
+            InputStream inputStream = new AwsProxyRequestBuilder("/user", HttpMethod.POST)
                     .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON)
                     .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                     .body(userData)

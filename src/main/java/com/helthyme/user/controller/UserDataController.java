@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("v1/user")
+@RequestMapping("/user")
 public class UserDataController {
 
     private final UserDataService userDataService;
@@ -21,10 +21,6 @@ public class UserDataController {
 
     @PostMapping
     public Response<User> healthCheck(@RequestBody UserData user){
-       User userDto = this.userDataService.saveUserData(user);
-       return Response.<User>builder()
-                .isSuccess(true)
-                .data(userDto)
-                .build();
+       return this.userDataService.saveUserData(user);
     }
 }
