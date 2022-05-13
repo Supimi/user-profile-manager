@@ -8,4 +8,6 @@ import org.mapstruct.Mapper;
 public abstract class UserMapper {
 
     public abstract User userDataToUser(UserData userData);
+
+    public abstract UserData userToUserData(User user);
 }

@@ -2,12 +2,8 @@ package com.helthyme.user.controller;
 
 import com.helthyme.user.dto.User;
 import com.helthyme.user.domain.Response;
-import com.helthyme.user.model.UserData;
 import com.helthyme.user.service.UserDataService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
@@ -20,7 +16,12 @@ public class UserDataController {
     }
 
     @PostMapping
-    public Response<User> healthCheck(@RequestBody UserData user){
+    public Response<User> saveUser(@RequestBody User user){
        return this.userDataService.saveUserData(user);
+    }
+
+    @GetMapping("{id}")
+    public Response<User> getUser(@PathVariable String id){
+        return this.userDataService.getUserData(id);
     }
 }

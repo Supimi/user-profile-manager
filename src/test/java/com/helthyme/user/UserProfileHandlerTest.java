@@ -32,7 +32,7 @@ public class UserProfileHandlerTest {
 
     @Disabled
     @Test
-    public void testApp() {
+    public void testSaveUser() {
         try {
             UserData userData = UserData.builder()
                     .firstName("supimi")
@@ -48,6 +48,21 @@ public class UserProfileHandlerTest {
             ByteArrayOutputStream responseStream = new ByteArrayOutputStream();
             handle(inputStream, responseStream);
 //            System.out.println(responseStream.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Disabled
+    @Test
+    public void testGetUser() {
+        try {
+            InputStream inputStream = new AwsProxyRequestBuilder("/user/35f6f71a-ce46-42af-b5ec-0f6cd9c828ef", HttpMethod.GET)
+                    .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON)
+                    .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
+                    .buildStream();
+            ByteArrayOutputStream responseStream = new ByteArrayOutputStream();
+            handle(inputStream, responseStream);
         } catch (Exception e) {
             e.printStackTrace();
         }
