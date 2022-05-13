@@ -1,5 +1,6 @@
 package com.helthyme.user.service;
 
+import com.amazonaws.util.StringUtils;
 import com.helthyme.user.Constants;
 import com.helthyme.user.domain.Response;
 import com.helthyme.user.dto.User;
@@ -31,7 +32,9 @@ public class UserDataService {
 
         try {
             UserData userData = this.userMapper.userToUserData(user);
-            userData.setUserId(UUID.randomUUID().toString());
+            if (StringUtils.isNullOrEmpty(userData.getUserId())) {
+                userData.setUserId(UUID.randomUUID().toString());
+            }
             this.userDataRepository.save(userData);
             updatedUser = this.userMapper.userDataToUser(userData);
             success = true;
