@@ -37,7 +37,7 @@ public class UserProfileHandlerTest {
             UserData userData = UserData.builder()
                     .firstName("supimi")
                     .lastName("piumika")
-                    .userName("supimip")
+                    .username("supimip")
                     .gender("Female")
                     .build();
             InputStream inputStream = new AwsProxyRequestBuilder("/user", HttpMethod.POST)
@@ -57,7 +57,7 @@ public class UserProfileHandlerTest {
     @Test
     public void testGetUser() {
         try {
-            InputStream inputStream = new AwsProxyRequestBuilder("/user/35f6f71a-ce46-42af-b5ec-0f6cd9c828ef", HttpMethod.GET)
+            InputStream inputStream = new AwsProxyRequestBuilder("/user/466ce154-6e88-4dec-b901-1d7dfdd95ec1", HttpMethod.GET)
                     .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON)
                     .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                     .buildStream();

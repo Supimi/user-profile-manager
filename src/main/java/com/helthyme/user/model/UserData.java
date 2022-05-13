@@ -2,6 +2,7 @@ package com.helthyme.user.model;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBIndexHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,8 +28,8 @@ public class UserData {
     @DynamoDBAttribute(attributeName = "last_name")
     private String lastName;
 
-    @DynamoDBAttribute(attributeName = "username")
-    private String userName;
+    @DynamoDBIndexHashKey(attributeName = "username", globalSecondaryIndexName = "username-index")
+    private String username;
 
     @DynamoDBAttribute(attributeName = "email")
     private String email;
@@ -37,7 +38,7 @@ public class UserData {
     private String gender;
 
     @DynamoDBAttribute(attributeName = "birthdate")
-    private Integer birthDate;
+    private Long birthdate;
 
     @DynamoDBAttribute(attributeName = "weight")
     private String weight;

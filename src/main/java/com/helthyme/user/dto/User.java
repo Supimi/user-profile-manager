@@ -13,10 +13,10 @@ public class User {
     private String userId;
     private String firstName;
     private String lastName;
-    private String userName;
+    private String username;
     private String email;
     private String gender;
-    private Integer birthDate;
+    private Long birthdate;
     private String weight;
     private String height;
     private Integer bmi;
