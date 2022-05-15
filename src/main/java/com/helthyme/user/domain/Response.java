@@ -1,6 +1,5 @@
 package com.helthyme.user.domain;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
 @Getter
