@@ -14,8 +14,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@DynamoDBTable(tableName = "meal-data")
-public class MealData
+@DynamoDBTable(tableName = "activity-data")
+public class ActivityData
 {
 
     @DynamoDBHashKey(attributeName = "id")
@@ -24,10 +24,22 @@ public class MealData
     @DynamoDBAttribute(attributeName = "user_id")
     private String userId;
 
-    @DynamoDBAttribute(attributeName = "food")
-    private String food;
+    @DynamoDBAttribute(attributeName = "activity_id")
+    private String activityId;
+
+    @DynamoDBAttribute(attributeName = "activity_name")
+    private String activityName;
+
+    @DynamoDBAttribute(attributeName = "intensity_level")
+    private String intensityLevel;
+
+    @DynamoDBAttribute(attributeName = "duration")
+    private String duration;
 
     @DynamoDBAttribute(attributeName = "date")
     private String date;
+
+    @DynamoDBAttribute(attributeName = "calorie")
+    private double calorie;
 
 }
