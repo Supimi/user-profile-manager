@@ -5,7 +5,7 @@ import com.amazonaws.serverless.proxy.internal.testutils.AwsProxyRequestBuilder;
 import com.amazonaws.serverless.proxy.internal.testutils.MockLambdaContext;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.helthyme.user.model.ActivityData;
-import com.helthyme.user.model.NutritionData;
+import com.helthyme.user.model.MealData;
 import com.helthyme.user.model.UserData;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;
@@ -109,16 +109,16 @@ public class UserProfileHandlerTest {
     @Test
     public void testSaveUserNutrition() {
         try {
-            NutritionData nutritionData = NutritionData.builder()
+            MealData mealData = MealData.builder()
                     .id( "123456" )
                     .date( "2021-02-12" )
                     .userId( "1234" )
                     .food( "cup of tea" )
                     .build();
-            InputStream inputStream = new AwsProxyRequestBuilder("/userNutrition", HttpMethod.POST)
+            InputStream inputStream = new AwsProxyRequestBuilder("/userMeal", HttpMethod.POST)
                     .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON)
                     .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
-                    .body(nutritionData)
+                    .body( mealData )
                     .buildStream();
             ByteArrayOutputStream responseStream = new ByteArrayOutputStream();
             handle(inputStream, responseStream);
