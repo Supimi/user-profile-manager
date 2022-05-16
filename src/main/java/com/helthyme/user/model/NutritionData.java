@@ -15,8 +15,11 @@ import lombok.Setter;
 @DynamoDBTable(tableName = "nutrition-data")
 public class NutritionData {
 
-    @DynamoDBHashKey(attributeName = "id")
-    private String id;
+    @DynamoDBHashKey(attributeName = "user_id")
+    private String userId;
+
+    @DynamoDBAttribute(attributeName = "date")
+    private String date;
 
     @DynamoDBAttribute(attributeName = "meal_id")
     private String mealId;
