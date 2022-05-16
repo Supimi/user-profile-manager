@@ -4,6 +4,7 @@ package com.helthyme.user;
 import com.amazonaws.serverless.proxy.internal.testutils.AwsProxyRequestBuilder;
 import com.amazonaws.serverless.proxy.internal.testutils.MockLambdaContext;
 import com.amazonaws.services.lambda.runtime.Context;
+import com.helthyme.user.model.ActivityData;
 import com.helthyme.user.model.UserData;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;
@@ -75,6 +76,32 @@ public class UserProfileHandlerTest {
         } catch (IOException e) {
             e.printStackTrace();
             fail(e.getMessage());
+        }
+    }
+
+    @Disabled
+    @Test
+    public void testSaveUserActivity() {
+        try {
+            ActivityData activityData = ActivityData.builder()
+                    .id( "123456" )
+                    .activityId("co_01")
+                    .activityName( "walking" )
+                    .date( "2021-02-12" )
+                    .userId( "1234" )
+                    .duration( "12:12" )
+                    .intensityLevel( "1" )
+                    .build();
+            InputStream inputStream = new AwsProxyRequestBuilder("/userActivity", HttpMethod.POST)
+                    .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON)
+                    .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
+                    .body(activityData)
+                    .buildStream();
+            ByteArrayOutputStream responseStream = new ByteArrayOutputStream();
+            handle(inputStream, responseStream);
+            //System.out.println(responseStream.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
