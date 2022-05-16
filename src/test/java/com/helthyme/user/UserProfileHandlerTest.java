@@ -5,6 +5,7 @@ import com.amazonaws.serverless.proxy.internal.testutils.AwsProxyRequestBuilder;
 import com.amazonaws.serverless.proxy.internal.testutils.MockLambdaContext;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.helthyme.user.model.ActivityData;
+import com.helthyme.user.model.NutritionData;
 import com.helthyme.user.model.UserData;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;
@@ -96,6 +97,28 @@ public class UserProfileHandlerTest {
                     .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON)
                     .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                     .body(activityData)
+                    .buildStream();
+            ByteArrayOutputStream responseStream = new ByteArrayOutputStream();
+            handle(inputStream, responseStream);
+            //System.out.println(responseStream.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testSaveUserNutrition() {
+        try {
+            NutritionData nutritionData = NutritionData.builder()
+                    .id( "123456" )
+                    .date( "2021-02-12" )
+                    .userId( "1234" )
+                    .food( "cup of tea" )
+                    .build();
+            InputStream inputStream = new AwsProxyRequestBuilder("/userNutrition", HttpMethod.POST)
+                    .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON)
+                    .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
+                    .body(nutritionData)
                     .buildStream();
             ByteArrayOutputStream responseStream = new ByteArrayOutputStream();
             handle(inputStream, responseStream);
