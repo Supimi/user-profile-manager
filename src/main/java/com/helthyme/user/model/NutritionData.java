@@ -22,5 +22,5 @@ public class NutritionData {
     private String mealId;
 
     @DynamoDBAttribute(attributeName = "edamamResponse")
-    private String edamamResponse;
+    private Object edamamResponse;
 }
