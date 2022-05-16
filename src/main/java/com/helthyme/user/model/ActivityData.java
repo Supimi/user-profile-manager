@@ -40,6 +40,6 @@ public class ActivityData
     private String date;
 
     @DynamoDBAttribute(attributeName = "calorie")
-    private double calorie;
+    private String calorie;
 
 }

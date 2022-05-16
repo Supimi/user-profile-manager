@@ -92,7 +92,7 @@ public class UserProfileHandlerTest {
                     .userId( "1234" )
                     .duration( "12:12" )
                     .intensityLevel( "1" )
-                    .calorie( 234.34 )
+                    .calorie( "234.34" )
                     .build();
             InputStream inputStream = new AwsProxyRequestBuilder("/userActivity", HttpMethod.POST)
                     .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON)
