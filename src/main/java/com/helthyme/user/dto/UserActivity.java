@@ -22,4 +22,5 @@ public class UserActivity
     private String intensityLevel;
     private String duration;
     private String date;
+    private double calorie;
 }
