@@ -2,6 +2,7 @@ package com.helthyme.user.model;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBIndexHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,7 +22,7 @@ public class ActivityData
     @DynamoDBHashKey(attributeName = "id")
     private String id;
 
-    @DynamoDBAttribute(attributeName = "user_id")
+    @DynamoDBIndexHashKey(globalSecondaryIndexName = "user_id-index", attributeName = "user_id")
     private String userId;
 
     @DynamoDBAttribute(attributeName = "activity_id")
