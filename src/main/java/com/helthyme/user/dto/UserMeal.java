@@ -18,6 +18,7 @@ public class UserMeal
     private String id;
     private String userId;
     private String food;
-    private String date;
+    private String dateValue;
+    private String calorie;
 
 }

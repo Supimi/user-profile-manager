@@ -21,6 +21,6 @@ public class UserActivity
     private String activityName;
     private String intensityLevel;
     private String duration;
-    private String date;
+    private String dateValue;
     private String calorie;
 }

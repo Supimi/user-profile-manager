@@ -37,8 +37,8 @@ public class ActivityData
     @DynamoDBAttribute(attributeName = "duration")
     private String duration;
 
-    @DynamoDBAttribute(attributeName = "date")
-    private String date;
+    @DynamoDBAttribute(attributeName = "date_value")
+    private String dateValue;
 
     @DynamoDBAttribute(attributeName = "calorie")
     private String calorie;

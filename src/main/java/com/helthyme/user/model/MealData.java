@@ -27,7 +27,10 @@ public class MealData
     @DynamoDBAttribute(attributeName = "food")
     private String food;
 
-    @DynamoDBAttribute(attributeName = "date")
-    private String date;
+    @DynamoDBAttribute(attributeName = "date_value")
+    private String dateValue;
+
+    @DynamoDBAttribute(attributeName = "calorie")
+    private String calorie;
 
 }

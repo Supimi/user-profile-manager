@@ -88,7 +88,7 @@ public class UserProfileHandlerTest {
                     .id( "123456" )
                     .activityId("co_01")
                     .activityName( "walking" )
-                    .date( "2021-02-12" )
+                    .dateValue( "2021-02-12" )
                     .userId( "1234" )
                     .duration( "12:12" )
                     .intensityLevel( "1" )
@@ -112,7 +112,7 @@ public class UserProfileHandlerTest {
         try {
             MealData mealData = MealData.builder()
                     .id( "123456" )
-                    .date( "2021-02-12" )
+                    .dateValue( "2021-02-12" )
                     .userId( "1234" )
                     .food( "cup of tea" )
                     .build();
