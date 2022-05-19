@@ -22,10 +22,10 @@ public class ReportData {
     private String userId;
 
     @DynamoDBAttribute(attributeName = "from_date")
-    private Integer fromDate;
+    private Long fromDate;
 
     @DynamoDBAttribute(attributeName = "end_date")
-    private Integer endDate;
+    private Long endDate;
 
     @DynamoDBAttribute(attributeName = "file_name")
     private String fileName;
